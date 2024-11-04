@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "406711582206",
+    "project_id": "ojogo-51aef",
+    "storage_bucket": "ojogo-51aef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406711582206:android:d67beb1b1591fcea2494af",
+        "android_client_info": {
+          "package_name": "com.ojogo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMQdalyuIYTlIVzslZnZTUBUDWow345KE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
