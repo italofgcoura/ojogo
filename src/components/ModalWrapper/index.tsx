@@ -47,7 +47,7 @@ const generalStyles = StyleSheet.create({
     padding: 16,
     width: '100%',
     gap: 24,
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: Colors.accent,
     position: 'relative',
     minHeight: 100,

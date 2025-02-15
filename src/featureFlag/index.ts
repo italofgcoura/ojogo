@@ -1,4 +1,4 @@
 export default {
   addNewPlayers: true,
-  payments: true,
+  payments: false,
 };

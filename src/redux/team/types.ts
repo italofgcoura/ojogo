@@ -1,3 +1,5 @@
+import {IPlayerDraw} from '../../interfaces';
+
 export type tPlayer = {
-  drawnTeams: {name: string; id: string; randomNumber: number}[][] | [];
+  drawnTeams: IPlayerDraw[][] | [];
 };

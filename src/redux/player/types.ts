@@ -1,4 +1,6 @@
+import {IPlayer, IPlayerDraw} from '../../interfaces';
+
 export type tPlayer = {
-  drawnPlayers: {name: string; id: string}[] | null;
-  storedPlayers: {name: string; id: string; randomNumber: number}[];
+  drawnPlayers: IPlayer[] | null;
+  storedPlayers: IPlayerDraw[];
 };

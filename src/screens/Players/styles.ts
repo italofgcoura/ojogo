@@ -29,4 +29,18 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'Roboto-Bold',
   },
+  playerSkillContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  playerSkill: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 16,
+    backgroundColor: Colors.primary,
+    borderRadius: 4,
+  },
+  playerSkillText: {
+    fontFamily: 'Roboto-Bold',
+  },
 });

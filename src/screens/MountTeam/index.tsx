@@ -61,10 +61,7 @@ export default ({mountTeam, players, onClose}: IProps) => {
         />
       </ScrollView>
       <View style={{height: 44, width: '100%'}}>
-        <CustomButton
-          // disabled={selectedPlayers.length === 0}
-          onPress={mountNewTeam}
-          customStyles={{height: 44}}>
+        <CustomButton onPress={mountNewTeam} customStyles={{height: 44}}>
           montar time
         </CustomButton>
       </View>

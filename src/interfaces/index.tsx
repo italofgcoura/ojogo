@@ -1,6 +1,7 @@
 interface IPlayer {
   name: string;
   id: string;
+  skillScore: number;
 }
 
 interface IPlayerDraw extends IPlayer {

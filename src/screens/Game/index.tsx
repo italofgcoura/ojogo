@@ -3,16 +3,17 @@ import React, {useCallback, useState} from 'react';
 import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import 'react-native-get-random-values';
 import {useSelector} from 'react-redux';
-import PageBackground from '../../components/PageBackground';
-import PageTitle from '../../components/PageTitle';
-import PlayersList from '../../components/PlayersList';
+
+import {PageBackground, PageTitle, PlayersList} from '../../components';
 import {Colors, CustomButton} from '../../designSystem';
 import {useAppDispatch} from '../../hooks';
 import {IPlayerDraw} from '../../interfaces';
 import {setDrawnPlayers} from '../../redux/player/slice';
 import {tRootState} from '../../redux/store';
 import {getItem} from '../../utils/localStorage';
+
 import styles from './styles';
+
 const Game = () => {
   const dispatch = useAppDispatch();
   const [players, setPlayers] = useState<IPlayerDraw[]>([]);

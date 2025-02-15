@@ -10,6 +10,8 @@ const getItem = async (key: string) => {
   }
 };
 
-const setItem = async (key: string, value) => {};
+const setItem = async (key: string, value: string) => {
+  await AsyncStorage.setItem(key, value);
+};
 
 export {getItem, setItem};
