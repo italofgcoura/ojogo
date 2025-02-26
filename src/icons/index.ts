@@ -15,3 +15,4 @@ export {default as Players} from './Players';
 export {default as TrashCan} from './TrashCan';
 export {default as VisibilityOff} from './VisibilityOff';
 export {default as VisibilityOn} from './VisibilityOn';
+export {default as PlayerSkill} from './PlayerSkill';

@@ -42,5 +42,6 @@ export default StyleSheet.create({
   },
   playerSkillText: {
     fontFamily: 'Roboto-Bold',
+    color: Colors.main_text,
   },
 });

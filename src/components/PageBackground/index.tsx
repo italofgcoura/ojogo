@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleProp, StyleSheet, View, ViewProps} from 'react-native';
 import {Colors} from '../../designSystem';
+import Header from '../Header';
 
 interface IProps {
   children: React.ReactNode;
@@ -8,7 +9,12 @@ interface IProps {
 }
 
 export default ({children}: IProps) => {
-  return <View style={styles.wrapper}>{children}</View>;
+  return (
+    <View style={styles.wrapper}>
+      <Header />
+      {children}
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({

@@ -7,7 +7,7 @@ import Navigation from './navigation';
 export default function App() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Navigation />
       <PLayerModal />
     </>

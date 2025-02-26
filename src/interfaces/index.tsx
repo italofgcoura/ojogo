@@ -1,11 +1,16 @@
 interface IPlayer {
   name: string;
   id: string;
-  skillScore: number;
+  playerSkill: number;
 }
 
 interface IPlayerDraw extends IPlayer {
   randomNumber: number;
+}
+
+interface DrawnTeam {
+  players: IPlayerDraw[];
+  totalSkill: number;
 }
 
 type Payment = {
@@ -22,4 +27,4 @@ type MonthlyPayments = {
   payers: Payment[];
 };
 
-export type {IPlayer, IPlayerDraw, MonthlyPayments, Payment};
+export type {IPlayer, IPlayerDraw, MonthlyPayments, Payment, DrawnTeam};

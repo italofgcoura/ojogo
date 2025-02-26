@@ -8,8 +8,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderTopColor: Colors.gray.disabled,
     borderTopWidth: 1,
-    padding: 8,
     paddingHorizontal: 24,
+    paddingVertical: 16,
     backgroundColor: Colors.gray.background,
   },
 });

@@ -15,12 +15,6 @@ interface IProps {
 const Menu = ({state, navigation}: IProps) => {
   const {user} = useAppSelector((rootReducer): any => rootReducer.user);
 
-  console.log('user', user);
-
-  // const [a, seta] = useState('aa');
-
-  // console.log('a', a);
-
   return (
     <View style={styles.wrapper}>
       <MenuItem

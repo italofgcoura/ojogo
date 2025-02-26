@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     width: '100%',
     maxWidth: '100%',
+    color: Colors.main_text,
   },
   inputFocused: {
     borderColor: Colors.primary,

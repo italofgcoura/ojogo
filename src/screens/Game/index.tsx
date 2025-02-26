@@ -7,12 +7,13 @@ import {useSelector} from 'react-redux';
 import {PageBackground, PageTitle, PlayersList} from '../../components';
 import {Colors, CustomButton} from '../../designSystem';
 import {useAppDispatch} from '../../hooks';
-import {IPlayerDraw} from '../../interfaces';
+import {DrawnTeam, IPlayerDraw} from '../../interfaces';
 import {setDrawnPlayers} from '../../redux/player/slice';
 import {tRootState} from '../../redux/store';
 import {getItem} from '../../utils/localStorage';
 
 import styles from './styles';
+import orderByName from '../../utils/orderPlayers';
 
 const Game = () => {
   const dispatch = useAppDispatch();
@@ -66,7 +67,7 @@ const Game = () => {
   const onNumberOfPlayerPress = (number: number) => {
     setSumberOfPlayersToDrawn(number);
   };
-  console.log('drawnTeams', drawnTeams);
+
   return (
     <PageBackground>
       <ScrollView
@@ -83,15 +84,14 @@ const Game = () => {
         )}
         <View style={{gap: 4}}>
           {drawnTeams.length > 0 &&
-            drawnTeams?.map((team: IPlayerDraw[], index) => {
-              console.log('teams', team);
+            drawnTeams?.map((team: DrawnTeam, index) => {
               return (
                 <TouchableOpacity
                   key={index}
                   style={styles.team}
                   onPress={() => setSelectedPlayers(drawnTeams[index])}>
                   <Text style={styles.teamTitle}>Time {index + 1}: </Text>
-                  {team?.map((j: any) => (
+                  {team.players.map((j: any) => (
                     <Text style={styles.teamPlayer}>{j.name} </Text>
                   ))}
                 </TouchableOpacity>
@@ -103,7 +103,7 @@ const Game = () => {
           <>
             <PageTitle>Ou selecione os jogadores na lista abaixo:</PageTitle>
             <PlayersList
-              players={players?.sort((a, b) => a?.name.localeCompare(b?.name))}
+              players={orderByName(players)}
               isSelected={isSelected}
               onPlayerPress={onPlayerPress}
             />

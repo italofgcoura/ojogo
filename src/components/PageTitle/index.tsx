@@ -16,6 +16,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     fontFamily: 'Roboto-Bold',
-    // backgroundColor: Colors.gray.background,
+    paddingVertical: 16,
   },
 });

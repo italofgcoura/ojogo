@@ -6,6 +6,7 @@ import {CustomButton} from '../../designSystem';
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {IPlayerDraw} from '../../interfaces';
 import {setTeams} from '../../redux/team/slice';
+import orderByName from '../../utils/orderPlayers';
 
 interface IProps {
   mountTeam: boolean;
@@ -55,7 +56,7 @@ export default ({mountTeam, players, onClose}: IProps) => {
     <ModalWrapper visible={mountTeam} closeModal={onClose}>
       <ScrollView style={{height: 500}}>
         <PlayersList
-          players={players?.sort((a, b) => a?.name.localeCompare(b?.name))}
+          players={orderByName(players)}
           isSelected={isSelected}
           onPlayerPress={onPlayerPress}
         />

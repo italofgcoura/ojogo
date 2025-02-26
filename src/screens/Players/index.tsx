@@ -15,12 +15,14 @@ import {Colors, CustomButton, CustomInput} from '../../designSystem';
 import {TrashCan} from '../../icons';
 import {getItem, setItem} from '../../utils/localStorage';
 import styles from './styles';
+import {IPlayer} from '../../interfaces';
+import PlayerSkill from './PlayerSkill';
 const Players = () => {
   useEffect(() => {
     getStoredPlayers();
   }, []);
 
-  const [saved, setSaved] = useState<{name: string; id: string}[]>([]);
+  const [saved, setSaved] = useState<IPlayer[]>([]);
   const [newPlayer, setNewPlayer] = useState('');
   const [playerSkill, setPlayerSkill] = useState<number>(0);
   const onSaveNewPlayer = async () => {
@@ -34,12 +36,14 @@ const Players = () => {
         await setItem('players', jsonValue);
         setNewPlayer('');
         getStoredPlayers();
+        setPlayerSkill(0);
         return;
       }
       const jsonValue = JSON.stringify([{name: newPlayer, id: uuidv4()}]);
 
       await setItem('players', jsonValue);
       getStoredPlayers();
+      setPlayerSkill(0);
       setNewPlayer('');
     } catch (e) {
       console.log('e', e);
@@ -71,7 +75,7 @@ const Players = () => {
       <ScrollView contentContainerStyle={{gap: 16, paddingVertical: 16}}>
         <CustomInput onChangeText={setNewPlayer} value={newPlayer} />
         <Text style={{color: Colors.main_text, fontWeight: 'bold'}}>
-          Selecione de 1 a 5 a habilidade do jogador:
+          Selecione de 1 a 7 a habilidade do jogador:
         </Text>
         <View style={styles.playerSkillContainer}>
           <TouchableOpacity
@@ -115,25 +119,45 @@ const Players = () => {
             onPress={() => setPlayerSkill(5)}>
             <Text style={styles.playerSkillText}>5</Text>
           </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.playerSkill,
+              playerSkill === 6 && {backgroundColor: Colors.accent},
+            ]}
+            onPress={() => setPlayerSkill(6)}>
+            <Text style={styles.playerSkillText}>6</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.playerSkill,
+              playerSkill === 7 && {backgroundColor: Colors.accent},
+            ]}
+            onPress={() => setPlayerSkill(7)}>
+            <Text style={styles.playerSkillText}>7</Text>
+          </TouchableOpacity>
         </View>
         <CustomButton
           onPress={onSaveNewPlayer}
-          disabled={newPlayer === '' || newPlayer?.length < 3}>
+          disabled={
+            newPlayer === '' || newPlayer?.length < 3 || playerSkill === 0
+          }>
           Salvar jogador
         </CustomButton>
         <Text style={{color: Colors.main_text, fontWeight: 'bold'}}>
           Total jogadores cadastrados: {saved?.length || 0} jogadores
         </Text>
-        {/* <View style={{gap: 8, height: 450}}> */}
         {saved?.map(i => (
           <View key={i.id} style={styles.playerWrapper}>
-            <Text style={styles.playerName}>{i.name}</Text>
+            <View>
+              <Text style={styles.playerName}>{i.name}</Text>
+
+              <PlayerSkill playerSkill={i.playerSkill} />
+            </View>
             <Pressable onPress={() => onDeletePress(i)}>
               <TrashCan />
             </Pressable>
           </View>
         ))}
-        {/* </View> */}
       </ScrollView>
     </PageBackground>
   );
