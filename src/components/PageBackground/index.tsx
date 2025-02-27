@@ -1,5 +1,11 @@
 import React from 'react';
-import {StyleProp, StyleSheet, View, ViewProps} from 'react-native';
+import {
+  SafeAreaView,
+  StyleProp,
+  StyleSheet,
+  View,
+  ViewProps,
+} from 'react-native';
 import {Colors} from '../../designSystem';
 import Header from '../Header';
 
@@ -10,10 +16,12 @@ interface IProps {
 
 export default ({children}: IProps) => {
   return (
-    <View style={styles.wrapper}>
-      <Header />
-      {children}
-    </View>
+    <SafeAreaView style={styles.wrapper}>
+      <View style={styles.wrapper}>
+        <Header />
+        {children}
+      </View>
+    </SafeAreaView>
   );
 };
 

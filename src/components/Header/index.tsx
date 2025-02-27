@@ -8,11 +8,11 @@ export default () => {
     <View style={styles.wrapper}>
       <Ball />
       <Text style={styles.title}>Jogo</Text>
-      <View style={styles.buildVersion}>
+      {/* <View style={styles.buildVersion}>
         <Text style={styles.buildVersionText}>
           Build: {getBuildNumber()} - Versão: {getVersion()}
         </Text>
-      </View>
+      </View> */}
     </View>
   );
 };
